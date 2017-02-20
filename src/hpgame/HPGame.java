@@ -23,7 +23,6 @@ public class HPGame
 	 */
 	public static void main(String[] args)
 	{
-		// TODO code application logic here
 		HPGame game = new HPGame();
 		File photod = game.makehomedir();
 		List<QandA> qas = game.readAllQandAs(photod);
@@ -55,7 +54,6 @@ public class HPGame
 		List<QandA> qas = new ArrayList<>();
 		List<File> filesA = new ArrayList<>();
 		List<File> filesQ = new ArrayList<>();
-		// TODO return tuple of strings with Q and A for each photo
 		for (final File fileEntry : folder.listFiles())
 		{
 			if (fileEntry.isDirectory())
@@ -83,7 +81,6 @@ public class HPGame
 				a = filesA.get(j).getName()
 								 .toLowerCase()
 								 .replaceAll(".jpg", "")
-								 .replaceAll(".JPG", "")
 								 .replaceAll("[^a-zA-Z]","");
 
 
@@ -105,6 +102,7 @@ public class HPGame
 		return qas;
 	}
 
+	// Just for testing 
 	private void printAllQandAs(List<QandA> qas)
 	{
 		Utilitis.print("----------------------------------------------------------------");

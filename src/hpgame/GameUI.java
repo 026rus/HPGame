@@ -64,12 +64,15 @@ public class GameUI extends javax.swing.JFrame
 	private void startGame()
 	{
 		if (tsg != null) tsg.stop();
-		teg = new Timer(60000, new ActionListener()
+		// teg = new Timer(6000, new ActionListener()
+		int deleyx = 1000 * 60 * 60 * 1; // 1 hour
+		teg = new Timer(deleyx, new ActionListener()
 		{
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				finishGame();
+				// just restart gave if no one guesses corectly
+				startGame();
 			}
 		});
 		teg.setRepeats(false);
