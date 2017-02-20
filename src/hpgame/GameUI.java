@@ -345,7 +345,7 @@ public class GameUI extends javax.swing.JFrame
 		try
 		{
 			imge = ImageIO.read(qas.get(ansver).Q);
-			Image dimg = imge.getScaledInstance((int) (width), (int) (height), Image.SCALE_AREA_AVERAGING);
+			Image dimg = Utilitis.scaleImage(imge, BufferedImage.TYPE_INT_RGB, width, height);
 			ImageIcon icon = new ImageIcon(dimg);
 			jLabel_photo.setIcon(icon);
 
@@ -365,7 +365,8 @@ public class GameUI extends javax.swing.JFrame
 		try
 		{
 			imge = ImageIO.read(qas.get(ansver).A);
-			Image dimg = imge.getScaledInstance((int) (width), (int) (height), Image.SCALE_SMOOTH);
+			Image dimg = Utilitis.scaleImage(imge, BufferedImage.TYPE_INT_RGB, width, height);
+			// Image dimg = imge.getScaledInstance((int) (width), (int) (height), Image.SCALE_SMOOTH);
 			ImageIcon icon = new ImageIcon(dimg);
 			jLabel_photo.setIcon(icon);
 			
