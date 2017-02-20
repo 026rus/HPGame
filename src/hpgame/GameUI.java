@@ -8,6 +8,7 @@ package hpgame;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -329,8 +330,8 @@ public class GameUI extends javax.swing.JFrame
 	///////////////////////////////////////////////////////////////////////
 	private void addPhoto(String photo, int x)
 	{
-		double height = jLabel_photo.getPreferredSize().getHeight();
-		double width = jLabel_photo.getPreferredSize().getWidth();
+		int height = (int) (Toolkit.getDefaultToolkit().getScreenSize().height*0.8);
+		int width  = (int) (Toolkit.getDefaultToolkit().getScreenSize().width *0.8);
 		jLabel_photo.setText("");
 		Utilitis.print("Aditing photo at the begining of the game:");
 		Utilitis.print("H = " + height + " W = " + width);
@@ -344,7 +345,7 @@ public class GameUI extends javax.swing.JFrame
 		try
 		{
 			imge = ImageIO.read(qas.get(ansver).Q);
-			Image dimg = imge.getScaledInstance((int) (width), (int) (height), Image.SCALE_SMOOTH);
+			Image dimg = imge.getScaledInstance((int) (width), (int) (height), Image.SCALE_AREA_AVERAGING);
 			ImageIcon icon = new ImageIcon(dimg);
 			jLabel_photo.setIcon(icon);
 
@@ -356,8 +357,8 @@ public class GameUI extends javax.swing.JFrame
 
 	private void setAnsvPoto(File f)
 	{
-		double height = jLabel_photo.getPreferredSize().getHeight();
-		double width = jLabel_photo.getPreferredSize().getWidth();
+		int height = (int) (Toolkit.getDefaultToolkit().getScreenSize().height*0.8);
+		int width  = (int) (Toolkit.getDefaultToolkit().getScreenSize().width *0.8);
 		Utilitis.print("H = " + height + " W = " + width);
 	
 		BufferedImage imge = null;
