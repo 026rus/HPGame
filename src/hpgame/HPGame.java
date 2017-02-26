@@ -49,11 +49,13 @@ public class HPGame
 		return photoDir;
 	}
 
+	// Read all the files and sort them for Q files and A files
 	private List<QandA> readAllQandAs(final File folder)
 	{
 		List<QandA> qas = new ArrayList<>();
 		List<File> filesA = new ArrayList<>();
 		List<File> filesQ = new ArrayList<>();
+		// Reading all the files
 		for (final File fileEntry : folder.listFiles())
 		{
 			if (fileEntry.isDirectory())
@@ -64,13 +66,16 @@ public class HPGame
 				if (fileEntry.getAbsoluteFile().toString().contains("(2)"))
 				{
 					filesA.add(fileEntry);
+					Utilitis.print("Find A: " + fileEntry.getName());
 				} else
 				{
 					filesQ.add(fileEntry);
+					Utilitis.print("Find Q: " + fileEntry.getName());
 				}
 			}
 		}
 
+		// combeine files in to tuple
 		for (int i=0; i< filesQ.size(); i++)
 		{
 			String q = filesQ.get(i).getName().toLowerCase();
@@ -81,8 +86,8 @@ public class HPGame
 				a = filesA.get(j).getName()
 								 .toLowerCase()
 								 .replaceAll(".jpg", "")
-								 .replaceAll("[^a-zA-Z]","");
-
+								 .replaceAll("[^a-zA-Z.\\s]","");
+				Utilitis.print( q + " = " + a);
 
 				if(q.contains(a))
 				{
